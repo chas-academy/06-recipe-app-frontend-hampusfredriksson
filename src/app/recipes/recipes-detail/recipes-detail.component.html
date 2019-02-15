@@ -1,3 +1,11 @@
 <p>
-  recipes-detail works!
+  Details of your recipe:
 </p>
+<div class="recipeInfo">
+  <ul *ngIf="recipe">
+    <a routerLink="detail/{{ recipe.label }}" routerLinkActive="active">
+      <li class="recipeTitle">{{ recipe.label }}</li>
+      <img src="{{ recipe.image }}" />
+    </a>
+  </ul>
+</div>
