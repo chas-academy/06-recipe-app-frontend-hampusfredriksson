@@ -1,14 +1,13 @@
-<p>recipes-lists works!</p>
-
 <div class="recipeInfo">
   <input type="text" class="form" name="inputValue" [(ngModel)]="inputValue" />
 
   <button class="fetchbtn" (click)="handleSearch()">Search</button>
 
-  <ul *ngFor="let recipe of recipies">
-    <a routerLink="recipies-detail{{ recipe.label }}">
-      <li class="recipeTitle">{{ recipe.label }}</li>
-      <img src="{{ recipe.image }}" />
+  <div *ngFor="let recipe of recipes">
+    <a routerLink="detail/{{ recipe.label }}" class="recipeTitle">
+      {{ recipe.label }}>
     </a>
-  </ul>
+    <img src="{{ recipe.image }}" />
+    <div routerLink="/detail/{{ recipe.label }}" class="recipeTitle"></div>
+  </div>
 </div>

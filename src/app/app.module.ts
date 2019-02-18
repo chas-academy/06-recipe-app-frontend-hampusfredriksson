@@ -12,12 +12,6 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { SavedDetailsComponent } from './saved/saved-details.component';
 import { RecipesService } from './recipes.service';
 
-const routes: Routes = [
-  // { path: '', component: RecipesComponent },
-  // { path: 'recipe/:id', component: RecipesDetailComponent },
-  // { path: 'saved', component: SavedDetailsComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +25,12 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    routes
+    RouterModule.forRoot([
+      { path: '', component: RecipesComponent },
+      { path: 'recipes-list', component: RecipesListsComponent },
+      { path: 'recipes-details/:id', component: RecipesDetailComponent },
+      { path: 'saved', component: SavedDetailsComponent }
+    ])
   ],
   providers: [RecipesService],
   bootstrap: [AppComponent]

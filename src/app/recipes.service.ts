@@ -12,6 +12,9 @@ export class RecipesService {
   baseUrl = 'https://api.edamam.com/';
   app_key = '65ab7ace1da31c7f5898aa958729b117';
   app_id = '61d3b631';
+  search: string;
+  ingredientLines;
+  id;
 
   getRecipes(search: string): Observable<any> {
     return this.http.get<any>(

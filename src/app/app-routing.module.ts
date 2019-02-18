@@ -4,9 +4,10 @@ import { RecipesListsComponent } from './recipes/recipes-lists/recipes-lists.com
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipesListsComponent },
   {
-    path: 'recipes/recipes-detail:id',
+    path: 'recipes/detail/:id',
     component: RecipesDetailComponent
   }
 ];

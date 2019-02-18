@@ -1,11 +1,21 @@
-<p>
-  Details of your recipe:
-</p>
-<div class="recipeInfo">
-  <ul *ngIf="recipe">
-    <a routerLink="detail/{{ recipe.label }}" routerLinkActive="active">
-      <li class="recipeTitle">{{ recipe.label }}</li>
-      <img src="{{ recipe.image }}" />
-    </a>
-  </ul>
+<div>
+  <h2>Recipe Details</h2>
+  <div *ngIf="recipe">
+    <h3 class="cardtitle">{{ recipe[0].label }}</h3>
+    <img src="{{ recipe[0].image }}" />
+    <div>
+      <h3>Ingredients:</h3>
+      <p>
+        {{ recipe[0].ingredientLines }}
+      </p>
+      <h4>Diet:</h4>
+      <p>
+        {{ recipe[0].dietLabels }}
+      </p>
+      <h5>Weight:</h5>
+      <p>
+        {{ recipe[0].totalWeight }}
+      </p>
+    </div>
+  </div>
 </div>

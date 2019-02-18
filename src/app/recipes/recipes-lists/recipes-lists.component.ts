@@ -9,15 +9,21 @@ import { RecipesService } from '../../recipes.service';
 export class RecipesListsComponent implements OnInit {
   constructor(private recipe: RecipesService) {}
 
+  [x: string]: any;
+  recipes: any;
   inputValue = this.inputValue;
-  recipies: [];
 
   handleSearch = () => {
     this.recipe.getRecipes(this.inputValue).subscribe(data => {
-      this.recipies = data.hits.map(result => result.recipe);
-      console.log(this.recipies);
+      this.recipes = data.hits.map(result => result.recipe);
+      console.log(this.recipes);
     });
   };
+
+  goDetails() {
+    // this.router.navigate(['/recipes/recipes-detail/:id']);
+    // debugger;
+  }
 
   ngOnInit() {}
 }

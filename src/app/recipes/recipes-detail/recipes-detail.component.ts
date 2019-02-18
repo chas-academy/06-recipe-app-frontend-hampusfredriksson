@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { RecipesService } from '../../recipes.service';
 
@@ -8,13 +9,24 @@ import { RecipesService } from '../../recipes.service';
   styleUrls: ['./recipes-detail.component.scss']
 })
 export class RecipesDetailComponent implements OnInit {
-  constructor(private id: RecipesService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private service: RecipesService
+  ) {}
 
-  handleDetail = () => {
-    this.id.getRecipe(this.id).subscribe(data => {
-      this.id = data.hits.map(result => result.id);
+  recipe: any;
+
+  // handleDetail = () => {
+  //   this.id.getRecipe(this.id).subscribe(data => {
+  //     this.id = data.hits.map(result => result.id);
+  //   });
+  //
+
+  ngOnInit() {
+    this.service.getRecipe(this.route.snapshot.params.id).subscribe(data => {
+      this.recipe = data.hits.map(hit => hit.recipe);
+      console.log(this.recipe);
     });
-  };
-
-  ngOnInit() {}
+  }
 }
