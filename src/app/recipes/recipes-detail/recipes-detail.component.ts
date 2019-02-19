@@ -22,6 +22,13 @@ export class RecipesDetailComponent implements OnInit {
   //     this.id = data.hits.map(result => result.id);
   //   });
   //
+  navigateHome() {
+    this.router.navigate(['']);
+  }
+
+  navigateSaved() {
+    this.router.navigate(['/saved']);
+  }
 
   ngOnInit() {
     this.service.getRecipe(this.route.snapshot.params.id).subscribe(data => {
