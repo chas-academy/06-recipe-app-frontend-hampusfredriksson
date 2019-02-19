@@ -21,8 +21,7 @@ export class RecipesComponent implements OnInit {
   inputValue = this.inputValue;
 
   navigateList() {
-    this.router.navigate(['/recipes/lists']);
-    console.log('test');
+    this.router.navigate(['/recipes/list']);
   }
 
   handleSearch = () => {

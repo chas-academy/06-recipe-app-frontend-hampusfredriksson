@@ -1,5 +1,7 @@
 <div>
   <button (click)="navigateHome()">Go home</button>
+  <button (click)="navigateList()">Go to fav recipe</button>
+
   <h2>Recipe Details</h2>
   <div *ngIf="recipe">
     <h3 class="cardtitle">{{ recipe[0].label }}</h3>
@@ -19,5 +21,5 @@
       </p>
     </div>
   </div>
-  <button (click)="navigateSaved()">Save recipe</button>
+  <button (click)="newMessage(recipe[0])">Save recipe</button>
 </div>
