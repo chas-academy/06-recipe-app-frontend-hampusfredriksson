@@ -10,9 +10,16 @@ import { RecipelistService } from 'src/app/recipelist.service';
   styleUrls: ['./recipes-lists.component.scss']
 })
 export class RecipesListsComponent implements OnInit {
-  // CHANGE THIS NAME
+  // CHANGE NAMES
   constructor(private test: RecipelistService) {}
+
+  test1: any[];
+
+  subscription = this.test.currentMessage.subscribe(
+    message => (this.test1 = message)
+  );
+
   ngOnInit() {
-    console.log(this.test);
+    console.log(this.test1);
   }
 }
