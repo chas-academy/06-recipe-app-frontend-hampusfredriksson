@@ -6,9 +6,8 @@
 
   <div *ngFor="let recipe of recipes">
     <a routerLink="detail/{{ recipe.label }}" class="recipeTitle">
-      {{ recipe.label }}>
+      {{ recipe.label }}
     </a>
     <img src="{{ recipe.image }}" />
-    <div routerLink="/detail/{{ recipe.image }}" class="recipeImage"></div>
   </div>
 </div>

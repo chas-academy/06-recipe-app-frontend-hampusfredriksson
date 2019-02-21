@@ -11,7 +11,7 @@ import { RecipelistService } from 'src/app/recipelist.service';
 })
 export class RecipesListsComponent implements OnInit {
   // CHANGE NAMES
-  constructor(private test: RecipelistService) {}
+  constructor(private test: RecipelistService, private router: Router) {}
 
   test1: any[];
 
@@ -19,6 +19,9 @@ export class RecipesListsComponent implements OnInit {
     message => (this.test1 = message)
   );
 
+  navigateDetails() {
+    this.router.navigate(['/recipes/detail/:id']);
+  }
   ngOnInit() {
     console.log(this.test1);
   }
