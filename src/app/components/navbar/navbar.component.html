@@ -1,7 +1,16 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a routerLink="/" class="btn btn-secondary">Find Recipes</a>
   <div>
-    <a class="btn btn-secondary" routerLink="profile">Profile</a>
-    <a class="btn btn-secondary" routerLink="login">Login</a>
+    <a class="btn btn-secondary" routerLink="profile" *ngIf="loggedIn"
+      >Profile</a
+    >
+    <a class="btn btn-secondary" routerLink="login" *ngIf="!loggedIn">Login</a>
+    <a
+      class="btn btn-secondary"
+      href="#"
+      (click)="logout($event)"
+      *ngIf="loggedIn"
+      >Logout</a
+    >
   </div>
 </nav>
