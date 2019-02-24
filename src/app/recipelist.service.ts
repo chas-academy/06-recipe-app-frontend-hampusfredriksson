@@ -5,13 +5,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class RecipelistService {
-  // BYT NAMN HÄR
-  private messageSource = new BehaviorSubject<any>([]);
-  currentMessage = this.messageSource.asObservable();
+  private saveRecipe = new BehaviorSubject<any>([]);
+  currentRecipe = this.saveRecipe.asObservable();
 
   constructor() {}
-  // BYT NAMN HÄR
-  changeMessage(message: string): void {
-    this.messageSource.next(this.messageSource.getValue().concat([message]));
+  stackRecipes(recipe: string): void {
+    this.saveRecipe.next(this.saveRecipe.getValue().concat([recipe]));
   }
 }

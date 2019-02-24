@@ -1,11 +1,11 @@
 <p>list wörks!</p>
-<div *ngFor="let listRecipe of test1">
+<div *ngFor="let listRecipe of recipe">
   <h3 routerLink="detail/{{ listRecipe.label }}">{{ listRecipe.label }}</h3>
   <img src="{{ listRecipe.image }}" />
 </div>
 
 <!-- Change names -->
-<div *ngFor="let listRecipe of test1">
+<div *ngFor="let listRecipe of recipe">
   <!-- <a class="btn" (click)="navigateDetails(listRecipe.label)">Go to details </a> -->
   <!-- <a routerLink="detail/{{ listRecipe.label }}"> {{ listRecipe.label }}</a> -->
   <!-- <img src="{{ recipe.image }}" /> <div routerLink="/detail/{{ recipe.image }}" class="recipeImage"></div> -->

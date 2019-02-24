@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { RecipesService } from '../../recipes.service';
 import { RecipelistService } from 'src/app/recipelist.service';
+import { CallsService } from 'src/app/calls.service';
 
 @Component({
   selector: 'app-recipes-lists',
@@ -10,19 +11,23 @@ import { RecipelistService } from 'src/app/recipelist.service';
   styleUrls: ['./recipes-lists.component.scss']
 })
 export class RecipesListsComponent implements OnInit {
-  // CHANGE NAMES
-  constructor(private test: RecipelistService, private router: Router) {}
+  constructor(
+    private test: RecipelistService,
+    private router: Router,
+    private saveRecipe: CallsService
+  ) {}
 
-  test1: any[];
+  recipe: any[];
 
-  subscription = this.test.currentMessage.subscribe(
-    message => (this.test1 = message)
+  subscription = this.test.currentRecipe.subscribe(
+    recipe => (this.recipe = recipe)
   );
 
   navigateDetails() {
     this.router.navigate(['/recipes/detail/:id']);
   }
   ngOnInit() {
-    console.log(this.test1);
+    console.log(this.recipe);
+    console.log(this.saveRecipe);
   }
 }

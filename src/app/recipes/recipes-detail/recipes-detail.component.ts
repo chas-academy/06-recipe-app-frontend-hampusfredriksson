@@ -14,18 +14,13 @@ export class RecipesDetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private service: RecipesService,
-    private data2: RecipelistService
+    private saveRecipe: RecipelistService
   ) {}
 
   recipe: any;
 
-  message: any;
+  save: any;
 
-  // handleDetail = () => {
-  //   this.id.getRecipe(this.id).subscribe(data => {
-  //     this.id = data.hits.map(result => result.id);
-  //   });
-  //
   navigateHome() {
     this.router.navigate(['']);
   }
@@ -44,11 +39,10 @@ export class RecipesDetailComponent implements OnInit {
       console.log(this.recipe);
     });
 
-    this.data2.currentMessage.subscribe(message => (this.message = message));
+    this.saveRecipe.currentRecipe.subscribe(save => (this.save = save));
   }
-  // BYT NAMN PÅ DESSA
-  newMessage(e) {
-    this.data2.changeMessage(e);
-    console.log(e);
+  newRecipe(data) {
+    this.saveRecipe.stackRecipes(data);
+    console.log(data);
   }
 }
