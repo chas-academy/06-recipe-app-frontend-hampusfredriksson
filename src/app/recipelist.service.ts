@@ -9,7 +9,9 @@ export class RecipelistService {
   currentRecipe = this.saveRecipe.asObservable();
 
   constructor() {}
-  stackRecipes(recipe: string): void {
-    this.saveRecipe.next(this.saveRecipe.getValue().concat([recipe]));
+  savedRecipes(label: string, image: string, calories: string): void {
+    this.saveRecipe.next(
+      this.saveRecipe.getValue().concat([label, image, calories])
+    );
   }
 }

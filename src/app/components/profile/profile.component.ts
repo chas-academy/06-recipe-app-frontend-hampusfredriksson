@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CallsService } from 'src/app/calls.service';
+import { Component, OnInit } from '@angular/core'
+import { CallsService } from 'src/app/calls.service'
 
 @Component({
   selector: 'app-profile',
@@ -9,8 +9,6 @@ import { CallsService } from 'src/app/calls.service';
 export class ProfileComponent implements OnInit {
   constructor(private saveRecipe: CallsService) {}
 
-  ngOnInit() {
-    console.log(this.saveRecipe);
-  }
+  ngOnInit() {}
 }
 // CHANGE PROFILE TO LISTS WHEN DONE WITH OTHER SHIT

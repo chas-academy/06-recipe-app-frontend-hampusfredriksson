@@ -15,12 +15,23 @@ export class TokenService {
     this.set(token);
   }
 
+  handleEmail(email) {
+    this.set(email);
+  }
+
   set(token) {
     localStorage.setItem('token', token);
+  }
+  setEmail(email) {
+    localStorage.setItem('email', email);
   }
 
   get() {
     return localStorage.getItem('token');
+  }
+
+  getEmail() {
+    return localStorage.getItem('email');
   }
 
   remove() {
