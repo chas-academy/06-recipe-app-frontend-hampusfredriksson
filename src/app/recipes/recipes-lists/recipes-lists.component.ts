@@ -11,7 +11,7 @@ export class RecipesListsComponent implements OnInit {
 
   [x: string]: any;
   recipes: any;
-  inputValue = this.inputValue;
+  inputValue: any;
 
   handleSearch = () => {
     this.recipe.getRecipes(this.inputValue).subscribe(data => {
