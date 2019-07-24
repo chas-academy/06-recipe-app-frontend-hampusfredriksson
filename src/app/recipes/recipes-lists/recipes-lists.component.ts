@@ -15,8 +15,11 @@ export class RecipesListsComponent implements OnInit {
 
   handleSearch = () => {
     this.recipe.getRecipes(this.inputValue).subscribe(data => {
-      this.recipes = data.hits.map(result => result.recipe);
-      console.log(this.recipes);
+      this.recipes = data.hits.map(result => {
+        let recipe = result.recipe;
+        recipe.id = recipe.uri.slice(-32);
+        return recipe;
+      });
     });
   };
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class RecipesService {
   constructor(private http: HttpClient) {}
 
-  // baseUrl = "http://localhost:3000/recipe";
+  dbUrl = 'http://recipe.test/api/recipes/';
   baseUrl = 'https://api.edamam.com/';
   app_key = '65ab7ace1da31c7f5898aa958729b117';
   app_id = '61d3b631';
@@ -28,7 +28,13 @@ export class RecipesService {
     );
   }
 
-  saveRecipe() {}
+  saveRecipe(data: any): Observable<any> {
+    return this.http.post<any>(this.dbUrl, data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
 
   getRecipe(id): Observable<any> {
     return this.http.get<any>(

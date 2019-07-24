@@ -4,10 +4,10 @@
   <button class="fetchbtn" (click)="handleSearch()">Search</button>
 
   <div *ngFor="let recipe of recipes">
-    <a routerLink="detail/{{ recipe.label }}" class="recipeTitle">
+    <a routerLink="detail/{{ recipe.id }}" class="recipeTitle">
       {{ recipe.label }}>
     </a>
     <img src="{{ recipe.image }}" />
-    <div routerLink="/detail/{{ recipe.label }}" class="recipeTitle"></div>
+    <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div>
   </div>
 </div>

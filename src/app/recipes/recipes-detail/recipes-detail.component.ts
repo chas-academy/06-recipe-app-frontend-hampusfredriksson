@@ -23,13 +23,19 @@ export class RecipesDetailComponent implements OnInit {
   //   });
   //
   handleClick() {
-    this.service;
-    alert('Hello');
+    this.service.saveRecipe(this.recipe).subscribe(data => {
+      alert('Hello');
+    });
   }
 
   ngOnInit() {
     this.service.getRecipe(this.route.snapshot.params.id).subscribe(data => {
-      this.recipe = data.hits.map(hit => hit.recipe);
+      this.recipe = data.hits.map(hit => {
+        let recipe = hit.recipe;
+        recipe.id = recipe.uri.slice(-32);
+        return recipe;
+      })[0];
+
       console.log(this.recipe);
     });
   }
