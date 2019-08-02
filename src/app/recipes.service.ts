@@ -16,16 +16,20 @@ export class RecipesService {
   ingredientLines;
   id;
 
-  getRecipes(search: string): Observable<any> {
-    return this.http.get<any>(
+  getRecipes(search: string, allergens: string[]): Observable<any> {
+    allergens = allergens.map(allergen => 'health=' + allergen);
+    const url =
       this.baseUrl +
-        'search?q=' +
-        search +
-        '&app_id=' +
-        this.app_id +
-        '&app_key=' +
-        this.app_key
-    );
+      'search?q=' +
+      search +
+      '&app_id=' +
+      this.app_id +
+      '&app_key=' +
+      this.app_key +
+      '&' +
+      allergens.join('&');
+    console.log(url);
+    return this.http.get<any>(url);
   }
 
   saveRecipe(data: any): Observable<any> {

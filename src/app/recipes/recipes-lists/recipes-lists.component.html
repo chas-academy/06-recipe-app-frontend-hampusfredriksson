@@ -1,6 +1,10 @@
 <div class="recipeInfo">
   <input type="text" class="form" name="inputValue" [(ngModel)]="inputValue" />
 
+  <div *ngFor="let allergen of allergens">
+    <input type="checkbox" name="allergens" [(ngModel)]="allergen.checked" />
+    {{ allergen.name }}
+  </div>
   <button class="fetchbtn" (click)="handleSearch()">Search</button>
 
   <div *ngFor="let recipe of recipes">

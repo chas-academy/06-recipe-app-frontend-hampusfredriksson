@@ -11,6 +11,12 @@ import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.
 import { RecipesComponent } from './recipes/recipes.component';
 import { SavedDetailsComponent } from './saved/saved-details.component';
 import { RecipesService } from './recipes.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RequestResetComponent } from './password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { RecipesService } from './recipes.service';
     RecipesComponent,
     RecipesListsComponent,
     RecipesDetailComponent,
-    SavedDetailsComponent
+    SavedDetailsComponent,
+    NavbarComponent,
+    LoginComponent,
+    SignupComponent,
+    ProfileComponent,
+    RequestResetComponent,
+    ResponseResetComponent
   ],
   imports: [
     BrowserModule,
