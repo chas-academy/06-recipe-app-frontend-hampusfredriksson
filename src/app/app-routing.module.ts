@@ -34,11 +34,6 @@ const routes: Routes = [
   {
     path: 'response-password-reset',
     component: ResponseResetComponent
-  },
-
-  {
-    path: 'login',
-    component: LoginComponent
   }
 ];
 

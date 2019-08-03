@@ -17,6 +17,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestResetComponent } from './password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './password/response-reset/response-reset.component';
+import { TokenService } from './token.service';
+import { JarwisService } from './jarwis.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { ResponseResetComponent } from './password/response-reset/response-reset
       { path: 'saved', component: SavedDetailsComponent }
     ])
   ],
-  providers: [RecipesService],
+  providers: [RecipesService, JarwisService, TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
