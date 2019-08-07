@@ -1,5 +1,5 @@
 import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { RecipesListsComponent } from './recipes/recipes-lists/recipes-lists.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 import { LoginComponent } from './login/login.component';
@@ -11,17 +11,23 @@ import { BeforeLoginService } from './before-login.service';
 import { AfterLoginService } from './after-login.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesListsComponent },
-  {
-    path: 'recipes/detail/:id',
-    component: RecipesDetailComponent
-  },
+  { path: '*', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent,
     canActivate: [BeforeLoginService]
   },
+  {
+    path: 'recipes',
+    component: RecipesListsComponent,
+    canActivate: [AfterLoginService]
+  },
+  {
+    path: 'recipes/detail/:id',
+    component: RecipesDetailComponent,
+    canActivate: [AfterLoginService]
+  },
+
   {
     path: 'signup',
     component: SignupComponent,
@@ -33,14 +39,14 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: 'request-passowrd-reseet',
+    path: 'request-passowrd-reset',
     component: RequestResetComponent,
-    canActivate: [BeforeLoginService]
+    canActivate: [AfterLoginService]
   },
   {
     path: 'response-password-reset',
     component: ResponseResetComponent,
-    canActivate: [BeforeLoginService]
+    canActivate: [AfterLoginService]
   }
 ];
 

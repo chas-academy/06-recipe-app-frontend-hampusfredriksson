@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-saved-details',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved-details.component.scss']
 })
 export class SavedDetailsComponent implements OnInit {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  getSavedRecipe() {
+    return this.http.get('http://recipe.test/api/saved');
   }
-
+  ngOnInit() {}
 }

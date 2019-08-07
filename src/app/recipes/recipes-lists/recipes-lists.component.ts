@@ -12,12 +12,12 @@ export class RecipesListsComponent implements OnInit {
   [x: string]: any;
   recipes: any;
   inputValue: any;
-  // allergens: {};
   allergens = [
-    // ? peanut and fish is giving cors error
-    { name: 'peanuts', checked: false },
+    { name: 'peanut-free', checked: false },
     { name: 'alcohol-free', checked: false },
-    { name: 'fish', checked: false }
+    { name: 'fish-free', checked: false },
+    { name: 'vegan', checked: false },
+    { name: 'vegetarian', checked: false }
   ];
 
   handleSearch = () => {
@@ -25,7 +25,7 @@ export class RecipesListsComponent implements OnInit {
       .getRecipes(this.inputValue, this.selectedOptions)
       .subscribe(data => {
         this.recipes = data.hits.map(result => {
-          let recipe = result.recipe;
+          const recipe = result.recipe;
           recipe.id = recipe.uri.slice(-32);
           return recipe;
         });

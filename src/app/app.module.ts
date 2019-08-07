@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -22,6 +22,7 @@ import { JarwisService } from './jarwis.service';
 import { AuthService } from './auth.service';
 import { BeforeLoginService } from './before-login.service';
 import { AfterLoginService } from './after-login.service';
+import { InterceptorService } from './interceptor.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,13 @@ import { AfterLoginService } from './after-login.service';
     TokenService,
     AuthService,
     BeforeLoginService,
-    AfterLoginService
+    AfterLoginService,
+    InterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
