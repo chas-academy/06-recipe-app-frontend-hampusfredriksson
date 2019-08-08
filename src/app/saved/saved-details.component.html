@@ -1,0 +1,7 @@
+<div *ngFor="let recipe of recipes">
+  <a routerLink="detail/{{ recipe.id }}" class="recipeTitle">
+    {{ recipe.label }}
+  </a>
+  <img src="{{ recipe.image }}" />
+  <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div>
+</div>

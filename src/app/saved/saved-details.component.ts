@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-saved-details',
@@ -7,10 +7,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./saved-details.component.scss']
 })
 export class SavedDetailsComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  recipes: any;
 
-  getSavedRecipe() {
-    return this.http.get('http://recipe.test/api/saved');
+  constructor(private recipeService: RecipesService) {}
+
+  ngOnInit() {
+    this.recipeService.getSavedRecipes().subscribe(data => {
+      return this.recipes = data.map(result => {
+        const recipe = JSON.parse(result.json_data);
+        recipe.id = result.id;
+        return recipe;
+      });
+    });
   }
-  ngOnInit() {}
 }
