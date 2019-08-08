@@ -7,17 +7,18 @@ export class TokenService {
     login: 'http://recipe.test/api/login',
     signup: 'http://recipe.test/api/signup'
   };
+
   constructor() {}
 
   handle(token) {
-    this.set(token);
+    this.setToken(token);
   }
 
-  set(token) {
+  setToken(token) {
     localStorage.setItem('token', token);
   }
 
-  get() {
+  getToken() {
     return localStorage.getItem('token');
   }
 
@@ -26,7 +27,7 @@ export class TokenService {
   }
 
   isValid() {
-    const token = this.get();
+    const token = this.getToken();
     if (token) {
       const payload = this.payload(token);
       if (payload) {

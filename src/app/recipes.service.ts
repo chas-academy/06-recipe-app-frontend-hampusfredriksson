@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesService {
-  constructor(private http: HttpClient) {}
+  private httpNoIntercept: HttpClient;
+
+  constructor(private http: HttpClient, handler: HttpBackend) {
+    this.httpNoIntercept = new HttpClient(handler);
+  }
 
   dbUrl = 'http://recipe.test/api/recipes/';
   baseUrl = 'https://api.edamam.com/';
@@ -28,8 +32,17 @@ export class RecipesService {
       this.app_key +
       '&' +
       allergens.join('&');
-    console.log(url);
-    return this.http.get<any>(url);
+    return this.httpNoIntercept.get<any>(url);
+  }
+
+  getSavedRecipes(): Observable<any> {
+    return this.http.get<any>(this.dbUrl, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // tslint:disable-next-line: object-literal-key-quotes
+        'Accept': 'application/json'
+      })
+    });
   }
 
   saveRecipe(data: any): Observable<any> {
@@ -41,7 +54,7 @@ export class RecipesService {
   }
 
   getRecipe(id): Observable<any> {
-    return this.http.get<any>(
+    return this.httpNoIntercept.get<any>(
       this.baseUrl +
         'search?q=' +
         id +
