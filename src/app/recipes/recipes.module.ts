@@ -6,12 +6,14 @@ import { RecipesDetailComponent } from './recipes-detail/recipes-detail.componen
 import { RecipesListsComponent } from './recipes-lists/recipes-lists.component';
 import { RecipesComponent } from './recipes.component';
 
+import { RecipesRoutingModule } from './recipes-routing.module';
+
 @NgModule({
   declarations: [
     RecipesDetailComponent,
     RecipesListsComponent,
     RecipesComponent
   ],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, RecipesRoutingModule]
 })
 export class RecipesModule {}

@@ -33,20 +33,12 @@ export class RecipesListsComponent implements OnInit {
   };
 
   get selectedOptions() {
-    // right now: ['1','3']
     return this.allergens
       .filter(allergen => allergen.checked)
       .map(allergen => allergen.name);
   }
-  // handleClick(a, b, c) {
-  //   console.log(this.a);
-  // console.log(b);
-  // }
 
-  goDetails() {
-    // this.router.navigate(['/recipes/recipes-detail/:id']);
-    // debugger;
-  }
+  goDetails() {}
 
   ngOnInit() {}
 }
