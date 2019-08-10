@@ -13,11 +13,11 @@ export class SavedDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.recipeService.getSavedRecipes().subscribe(data => {
-      return this.recipes = data.map(result => {
+      return (this.recipes = data.map(result => {
         const recipe = JSON.parse(result.json_data);
         recipe.id = result.id;
         return recipe;
-      });
+      }));
     });
   }
 }

@@ -17,7 +17,6 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
 
-
   { path: 'recipes-list', component: RecipesListsComponent },
   { path: 'recipes-details/:id', component: RecipesDetailComponent }
 ];

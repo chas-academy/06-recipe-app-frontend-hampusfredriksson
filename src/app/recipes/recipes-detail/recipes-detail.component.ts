@@ -17,11 +17,6 @@ export class RecipesDetailComponent implements OnInit {
 
   recipe: any;
 
-  // handleDetail = () => {
-  //   this.id.getRecipe(this.id).subscribe(data => {
-  //     this.id = data.hits.map(result => result.id);
-  //   });
-  //
   handleClick() {
     this.service.saveRecipe(this.recipe).subscribe(data => {
       alert('Hello');

@@ -25,7 +25,7 @@ export class TokenService {
   remove() {
     return localStorage.removeItem('token');
   }
-
+  // ! Might wanna remove this not used anywhere..
   isValid() {
     const token = this.getToken();
     if (token) {

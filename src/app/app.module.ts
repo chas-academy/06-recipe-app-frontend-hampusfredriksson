@@ -10,9 +10,6 @@ import { RecipesService } from './recipes.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RequestResetComponent } from './password/request-reset/request-reset.component';
-import { ResponseResetComponent } from './password/response-reset/response-reset.component';
 import { TokenService } from './token.service';
 import { JarwisService } from './jarwis.service';
 import { AuthService } from './auth.service';
@@ -27,10 +24,7 @@ import { InterceptorService } from './interceptor.service';
     SavedDetailsComponent,
     NavbarComponent,
     LoginComponent,
-    SignupComponent,
-    ProfileComponent,
-    RequestResetComponent,
-    ResponseResetComponent
+    SignupComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
