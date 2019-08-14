@@ -1,17 +1,30 @@
 <div class="recipeInfo">
-  <input type="text" class="form" name="inputValue" [(ngModel)]="inputValue" />
-
-  <div *ngFor="let allergen of allergens">
+  <div class="searchbar">
+    <input
+      class="search_input"
+      type="text"
+      name=""
+      [(ngModel)]="inputValue"
+      placeholder="Search..."
+    />
+    <button class="fetchbtn" (click)="handleSearch()">Search</button>
+  </div>
+  <br />
+  <span class="allergens">Do you prefer</span>
+  <div class="checkbox" *ngFor="let allergen of allergens">
     <input type="checkbox" name="allergens" [(ngModel)]="allergen.checked" />
     {{ allergen.name }}
   </div>
-  <button class="fetchbtn" (click)="handleSearch()">Search</button>
 
-  <div *ngFor="let recipe of recipes">
-    <a routerLink="detail/{{ recipe.id }}" class="recipeTitle">
-      {{ recipe.label }}
-    </a>
-    <img src="{{ recipe.image }}" />
-    <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div>
+  <div class="recipes">
+    <table>
+      <tr *ngFor="let recipe of recipes">
+        <a routerLink="detail/{{ recipe.id }}" class="recipeTitle">
+          <td>{{ recipe.label }}</td>
+        </a>
+        <td><img src="{{ recipe.image }}" /></td>
+        <div routerLink="/detail/{{ recipe.id }}" class="recipeTitle"></div>
+      </tr>
+    </table>
   </div>
 </div>

@@ -1,21 +1,14 @@
 <div>
-  <h2>Recipe Details</h2>
   <div *ngIf="recipe">
-    <h3 class="cardtitle">{{ recipe.label }}</h3>
+    <h4 class="cardtitle">{{ recipe.label }}</h4>
     <img src="{{ recipe.image }}" />
     <div>
-      <h3>Ingredients:</h3>
+      <span>Ingredients:</span>
       <p>
         {{ recipe.ingredientLines }}
       </p>
-      <h4>Diet:</h4>
-      <p>
-        {{ recipe.dietLabels }}
-      </p>
       <h5>Weight:</h5>
-      <p>
-        {{ recipe.totalWeight }}
-      </p>
+      <p>{{ recipe.totalWeight }} g</p>
 
       <button (click)="handleClick()">Save recipe</button>
     </div>

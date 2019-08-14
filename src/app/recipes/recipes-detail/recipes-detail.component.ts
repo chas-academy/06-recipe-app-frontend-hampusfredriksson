@@ -30,8 +30,6 @@ export class RecipesDetailComponent implements OnInit {
         recipe.id = recipe.uri.slice(-32);
         return recipe;
       })[0];
-
-      console.log(this.recipe);
     });
   }
 }
