@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class JarwisService {
-  private baseURL = 'http://recipe.test/api';
+  private baseURL = 'http://rocky-garden-22652.herokuapp.com/api';
   constructor(private http: HttpClient) {}
 
   signup(data) {

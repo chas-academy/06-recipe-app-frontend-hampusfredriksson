@@ -12,7 +12,7 @@ export class RecipesService {
     this.httpNoIntercept = new HttpClient(handler);
   }
 
-  dbUrl = 'http://recipe.test/api/recipes/';
+  dbUrl = 'http://rocky-garden-22652.herokuapp.com/api/recipes/';
   baseUrl = 'https://api.edamam.com/';
   app_key = '65ab7ace1da31c7f5898aa958729b117';
   app_id = '61d3b631';
@@ -40,7 +40,7 @@ export class RecipesService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         // tslint:disable-next-line: object-literal-key-quotes
-        'Accept': 'application/json'
+        Accept: 'application/json'
       })
     });
   }

@@ -29,46 +29,6 @@ export class InterceptorService implements HttpInterceptor {
       headers: request.headers.set('Accept', 'application/json')
     });
 
-    return next.handle(request).pipe(
-      map((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse) {
-          console.log('event--->>>', event);
-        }
-        return event;
-      })
-    );
+    return next.handle(request);
   }
 }
-//   intercept(
-//     req: HttpRequest<any>,
-//     next: HttpHandler
-//   ): Observable<HttpEvent<any>> {
-
-//     const token = TokenService.getToken();
-
-//     if (token) {
-//       req = req.clone({
-//         headers: req.headers.set('Authorization', 'Bearer ' + token)
-//       });
-//     }
-
-//     if (!req.headers.has('Content-Type')) {
-//       req = req.clone({
-//         headers: req.headers.set('Content-Type', 'application/json')
-//       });
-//     }
-
-//     req = req.clone({
-//       headers: req.headers.set('Accept', 'application/json')
-//     });
-
-//     return next.handle(req).pipe(
-//       map((event: HttpEvent<any>) => {
-//         if (event instanceof HttpResponse) {
-//           console.log('event--->>>', event);
-//         }
-//         return event;
-//       })
-//     );
-//   }
-// }

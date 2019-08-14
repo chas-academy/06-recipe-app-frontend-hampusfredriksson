@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
 
   handleResponse(data) {
     this.Token.handle(data.access_token);
-    this.router.navigateByUrl('/recipes');
+    this.router.navigate(['/recipes']);
   }
 
   handleError(error) {

@@ -3,10 +3,10 @@ import { JsonPipe } from '@angular/common';
 
 @Injectable()
 export class TokenService {
-  private iss = {
-    login: 'http://recipe.test/api/login',
-    signup: 'http://recipe.test/api/signup'
-  };
+  private iss = [
+    'http://rocky-garden-22652.herokuapp.com/api/login',
+    'http://rocky-garden-22652.herokuapp.com/api/signup'
+  ];
 
   constructor() {}
 
@@ -30,6 +30,7 @@ export class TokenService {
     const token = this.getToken();
     if (token) {
       const payload = this.payload(token);
+
       if (payload) {
         return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
       }
