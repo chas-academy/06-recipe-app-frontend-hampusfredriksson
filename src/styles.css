@@ -6,3 +6,73 @@
 .ng-valid:not(form) {
   border-color: green;
 }
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: lightgray;
+}
+
+.navbarText {
+  color: white;
+  text-align: center;
+}
+
+.navText {
+  color: White;
+  text-align: center;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('app/navbar/anise-aroma-art-277253.jpg');
+  height: 300px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.searchbar input[type='text'] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+.searchbar button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+.searchbar button:hover {
+  background: #0b7dda;
+}
+
+.searchbar::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.checkbox {
+  display: inline-block;
+  margin: 20px;
+}
+
+table {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
