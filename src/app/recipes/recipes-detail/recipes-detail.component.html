@@ -11,6 +11,9 @@
       <p>{{ recipe.totalWeight }} g</p>
 
       <button (click)="handleClick()">Save recipe</button>
+      <p *ngIf="ShowMessage">
+        Awesome!! Your recipe is saved <a href="/saved">here</a>
+      </p>
     </div>
   </div>
 </div>

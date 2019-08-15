@@ -16,10 +16,15 @@ export class RecipesDetailComponent implements OnInit {
   ) {}
 
   recipe: any;
+  public ShowMessage = false;
 
   handleClick() {
     this.service.saveRecipe(this.recipe).subscribe(data => {
-      alert('Hello');
+      // alert('Hello');
+      this.ShowMessage = true;
+      setTimeout(() => {
+        this.ShowMessage = false;
+      }, 8000);
     });
   }
 

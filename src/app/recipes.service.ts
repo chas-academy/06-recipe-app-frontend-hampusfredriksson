@@ -12,8 +12,9 @@ export class RecipesService {
     this.httpNoIntercept = new HttpClient(handler);
   }
 
-  dbUrl = 'http://rocky-garden-22652.herokuapp.com/api/recipes/';
-  baseUrl = 'https://api.edamam.com/';
+  dbUrl =
+    'https://cors-anywhere.herokuapp.com/https://rocky-garden-22652.herokuapp.com/api/recipes';
+  baseUrl = 'http://api.edamam.com/';
   app_key = '65ab7ace1da31c7f5898aa958729b117';
   app_id = '61d3b631';
   search: string;
