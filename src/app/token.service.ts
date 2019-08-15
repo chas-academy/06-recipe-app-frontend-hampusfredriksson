@@ -3,10 +3,11 @@ import { JsonPipe } from '@angular/common';
 
 @Injectable()
 export class TokenService {
-  private iss = [
-    'https://rocky-garden-22652.herokuapp.com/api/login',
-    'https://rocky-garden-22652.herokuapp.com/api/signup'
-  ];
+  private iss = {
+    login: 'http://rocky-garden-22652.herokuapp.com/api/login',
+
+    signup: 'http://rocky-garden-22652.herokuapp.com/api/signup'
+  };
 
   constructor() {}
 
@@ -48,6 +49,7 @@ export class TokenService {
   }
 
   loggedIn() {
+    console.log(this.isValid());
     return this.isValid();
   }
 }

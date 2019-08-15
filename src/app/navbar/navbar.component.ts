@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TokenService } from '../token.service';
 
 @Component({
@@ -24,6 +24,6 @@ export class NavbarComponent implements OnInit {
     event.preventDefault();
     this.Token.remove();
     this.Auth.changeAuthStatus(false);
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('login');
   }
 }

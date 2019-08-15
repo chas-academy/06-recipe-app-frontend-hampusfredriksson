@@ -26,15 +26,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.Jarwis.login(this.form).subscribe(
-      data => this.handleResponse(data),
-      error => this.handleError(error)
+      data => {
+        this.handleResponse(data);
+      },
+      error => {
+        this.handleError(error);
+      }
     );
   }
 
   handleResponse(data) {
     this.Token.handle(data.access_token);
     this.Auth.changeAuthStatus(true);
-    this.router.navigateByUrl('/recipes');
+    this.router.navigateByUrl('recipes');
   }
   handleError(error) {
     this.error = error.error.error;
