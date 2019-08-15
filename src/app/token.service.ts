@@ -4,8 +4,8 @@ import { JsonPipe } from '@angular/common';
 @Injectable()
 export class TokenService {
   private iss = [
-    'http://rocky-garden-22652.herokuapp.com/api/login',
-    'http://rocky-garden-22652.herokuapp.com/api/signup'
+    'https://rocky-garden-22652.herokuapp.com/api/login',
+    'https://rocky-garden-22652.herokuapp.com/api/signup'
   ];
 
   constructor() {}
