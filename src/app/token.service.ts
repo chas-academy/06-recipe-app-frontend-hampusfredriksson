@@ -49,7 +49,6 @@ export class TokenService {
   }
 
   loggedIn() {
-    console.log(this.isValid());
     return this.isValid();
   }
 }
